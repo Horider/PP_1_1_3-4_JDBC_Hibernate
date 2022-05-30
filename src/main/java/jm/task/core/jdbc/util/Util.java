@@ -12,25 +12,11 @@ public class Util {
     private static String userName = "root";
     private static String password = "root";
     public static Connection connection;
-    public static Statement statement;
-
-
-    public static Statement getStatement() {
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return statement;
-    }
 
     public static Connection getConnection()  {
         String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName;
-
         try {
             connection = DriverManager.getConnection(connectionURL, userName, password);
-            // Удалить данный коммент перед комитом
-            System.out.println("Соединение с СУБД выполнено.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
